@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+:focus {
+    outline: 0;
+}
+
+ins {
+    text-decoration: none;
+}
+del {
+    text-decoration: line-through;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.headerBar {
+    height: 50px;
+    background-color: #2D95EC;
+}
+.bodyPart {
+    position:relative;
+    height: 800px;
+}
+.footerBar {
+    height: 150px; 
+    background-color:#2D95EC; 
+}
+.comWith {
+    width: 800px;
+    margin-right: auto; 
+    margin-left: auto;
+}
+.infoBar {
+    height: 160px;
+    background-color:#f5f5f5;
+}
+.infoDetail {
+    width: 700px; 
+    height: 140px; 
+    margin-top: 10px;
+}
+.infoDetail img { 
+    float:left; 
+    height:80px; 
+    margin-top: 30px;
+}
+.userContent {
+    float:left; 
+    margin-top:50px; 
+    margin-left: 20px;
+}
+.userName {
+    font-size:20px;
+    font-weight:bold;
+    color:#2D95EC;
+    margin-bottom: 5px;
+}
+.userEmail {
+    font-size:13px; 
+    color: #666;
+}
+.infoContent {
+    margin-top: 20px;
+    position:relative;
+}
+.contentLeft {
+    height: 150px; 
+    width: 200px; 
+    background-color:#f5f5f5;
+    border:1px solid #e1e8ed;
+    border-radius: 4px;    
+    float: left;
+}
+.DPart {
+    height: 20px;
+    width: 200px; 
+    padding-left: 20px;
+    margin-top: 20px; 
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.contentLeft a{
+    position: absolute;
+    height: 30px;
+    width: 200px;
+    color: #666;
+    background: none;
+    border-bottom: none;
+    margin: 0px;
+    line-height: 20px;
+    -webkit-transition: none;
+    transition: none;
+    text-decoration: none;
+    font-size: 15px;   
+}
+.contentLeft a:hover, .contentLeft a:focus {
+    color: #2D95EC;
+    background: #ededed;
+    -webkit-transition: none;
+    transition: none;
+    width: 200px;
+}
+.contentLeft a.active {
+    color: #72bf40;
+    font-weight: bold;
+    border-left: 3px solid #72bf40;
+    padding-left: 16px;
+}
+.contentLeft li {
+    font-size: 15px;
+    width: 200px;
+    height: 30px;
+}
+.DBody {
+    width: 300px; 
+    height: 30px;
+    padding-left:20px;
+}
+.DHeader {
+    color:#2D95EC;
+}
+.mainContent {
+    position: absolute;
+    float: left;
+    margin-left: 220px;
+    margin-top: 0px;
+    width: 600px;
+    height: 245px;
+    border-radius: 4px 4px 0 0;
+    border: 1px solid #e1e8ed;
+}
+.personInfo {
+    border-radius: 4px 4px 0 0;
+    background-color: #fff;
+    border: 1px solid #e1e8ed;
+    color: #666;
+    height: 50px;
+}
+.tHeader {
+    font-size: 18px;
+    padding:16px;
+    text-align: 50px; 
+    vertical-align: middle;
+    color:#2D95EC;
+}
+.personInfo li{
+    font-size:11px;
+    padding:0px;
+    text-align: 50px;
+    vertical-align: middle;    
+    border-bottom: 1px solid #e1e8ed;
+    width: 600px;
+    height: 48px;
+}
+.personInfo a {
+    text-decoration: none;
+    color: #666;
+    width: 600px; 
+    position: absolute;
+    height: 48px;
+    background: none;
+    border-bottom: none;
+    margin: 0px;
+    line-height: 48px;
+    -webkit-transition: none;
+    transition: none;
+    text-decoration: none;
+}
+.personInfo a:hover, .personInfo a:focus {
+    text-decoration: none;
+    background-color: #ededed; 
+    -webkit-transition: none;
+    transition: none;
+    width: 600px;
+}
+.newEmail {
+    background-color: #ededed;
+    height: 200px !important;
+    padding-top:16px !important;
+}
+.buttonStyleChange {
+    width: 90px;
+    height: 25px;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    background-color: #91C789; 
+    border:1px solid #91C789;
+    margin-left: 58px;
+}
+.buttonStyleCancel {
+    width: 90px;
+    height: 25px;
+    border-radius: 4px;
+    background-color: #f6f7f9;
+    border: 1px solid #ced0d4;
+    font-weight: bold;
+    color: #666;
+}
+.labalName {
+    width: 80px;
+    display:inline-block;
+    text-align: right;
+    padding-right: 10px;
+    font-size: 13px;
+    font-weight: bold;
+}
+.changePart {
+    width: 250px;
+    margin:auto;
+}
+.oneInput {
+    height: 20px;
+    margin-top:10px;
+}
+.infoInput {
+    height: 18px;
+}
+.newName {
+    background-color: #ededed;
+    height: 250px !important;
+    padding-top:16px !important;
+}
+
+.newPassword {
+    background-color: #ededed;
+    height: 250px !important;
+    padding-top:16px !important; 
+}
+
+.newType {
+    background-color: #ededed;
+    height: 100px !important;
+    padding-top:16px !important; 
+}
+
+.delete {
+    width: 600px;
+    height: 50px;
+    background-color: #ededed;
+    color:#2D95EC;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 50px;
+}
+.typeLine a {
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    margin:auto;
+    font-size: 12px;
+    color:#fff;
+    font-weight: bold;
+}
+.typeLine a:hover, .typeLine a:focus {
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    background-color: #FF9A16;
+}
+.free {
+    background-color: #91C789;
+    text-align: center;
+}
+.update {
+    background-color: #FF9A16;
+    text-align: center;
+}
+.d a:hover {
+    text-decoration: underline;
+    color:#2D95EC;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Venngage</title>
+</head>
+<body>
+<div class="headerBar"></div>
+<div class="bodyPart">
+    <div class="infoBar">
+        <div class="comWith">
+            <div class="infoDetail">
+                <img alt="userHeader" src="http://www.iitg.ernet.in/naveen.kashyap/image/50.jpg"/>
+                <div class="userContent">
+                    <p class="userName">USER NAME</p>
+                    <p class="userEmail">USEREMAIL@gmail.com</p>
+                </div>
+            </div>    
+        </div>  
+    </div> 
+    <div class="infoContent">
+        <div class="comWith">
+            <div class="contentLeft">
+                <ul>
+                    <div class="DPart"><h4 class="DHeader">Your Details</h4></div>
+                    <li><a href="#"><span class="DBody">Profile</span></a></li>
+                    <li><a href="#"><span class="DBody">Subscription</span></a></li>
+                </ul>
+            </div>
+            <div class="mainContent">
+                <div class="personInfo">
+                    <div class="infoTop"><h4 class="tHeader">Person Information</h4></div>
+                    <ul>
+                        <li id="oldEmail" style="display: block;" ><a href="#"><span style="font-size:13px; padding-left:16px; font-weight:bold; width: 120px; color:#000; display:inline-block;">Email</span><span id="oldEmailInput" style="font-size:13px;">useremail@gmail.com</span><span style="color: #365899;float: right;padding-left: 5px;padding-right: 25px;text-align: right;" onclick='showEmailDiv("newEmail")';>Edit</span></a></li>
+                        <li id="newEmail"  class="newEmail" style="display: none;">
+                            <span style="font-size:13px; padding-left:16px; font-weight:bold; width: 100px;color:#000;">Email</span>
+                            <div class="changePart">
+                                <div class="oneInput"><labal class="labalName">New</labal><input type="content" id="newEmailInput" class="infoInput"></input></div><br><br>
+                                <div class="oneInput"><labal class="labalName">Re-type new</labal><input type="content" id="newEmailInputTwo" class="infoInput"></input></div><br><br><br><br>
+                                <input type="button" id="changeEmail" value="Save Changes" onclick='showEmailDiv("oldEmail")' class="buttonStyleChange";></input>
+                                <input type="button" value="Cancel" onclick='showEmailDiv("oldEmail")' class="buttonStyleCancel";></input>  
+                            </div> 
+                        </li>
+                        <li id="oldName" style="display: block;"><a href="#"><span style="font-size:13px; padding-left:16px; font-weight:bold; width: 120px;color:#000; display:inline-block;">Name</span><span id="oldNameInput" style="font-size:13px;">User Name</span><span style="color: #365899;float: right;padding-left: 5px;padding-right: 25px;text-align: right;" onclick='showNameDiv("newName")';>Edit</span></a></li>
+                        <li id="newName" class="newName" style="display: none;">
+                            <span style="font-size:13px; padding-left:16px; font-weight:bold; width: 100px;color:#000;">Name</span>
+                            <div class="changePart">
+                                <div class="oneInput"><labal class="labalName">First</labal><input type="content" id="firstInput" class="infoInput"></input></div><br><br>
+                                <div class="oneInput"><labal class="labalName" >Middle</labal><input type="content" id="middleInput" class="infoInput" placeholder="Optional"></input></div><br><br>
+                                <div class="oneInput"><labal class="labalName">Last</labal><input type="content" id="lastInput" class="infoInput"></input></div><br><br><br><br>
+                                <input type="button" id="changeName" value="Save Changes" onclick='showNameDiv("oldName")' class="buttonStyleChange";></input>
+                                <input type="button" value="Cancel" onclick='showNameDiv("oldName")' class="buttonStyleCancel";></input>  
+                            </div> 
+                        </li>
+                        <li id="oldPassword" class="oldPassword" style="display: block;"><a href="#"><span style="font-size:13px; padding-left:16px; font-weight:bold; width: 120px;color:#000; display:inline-block;">Password</span><span style="font-size:13px;" id="oldPasswordInput">Password never changed.</span><span style="color: #365899;float: right;padding-left: 5px;padding-right: 25px;text-align: right;" onclick='showPasswordDiv("newPassword")'>Edit</span></a></li>
+                        <li id="newPassword" class="newPassword" style="display: none;">
+                            <span style="font-size:13px; padding-left:16px; font-weight:bold; width: 100px;color:#000;">Password</span>
+                            <div class="changePart">
+                                <div class="oneInput"><labal class="labalName">Current</labal><input type="content" id="oldPassword" class="infoInput"></input></div><br><br>
+                                <div class="oneInput"><labal class="labalName">New</labal><input type="content" id="newPassword" class="infoInput"></input></div><br><br>
+                                <div class="oneInput"><labal class="labalName">Re-type new</labal><input type="content" id="newPasswordTwo" class="infoInput"></input></div><br><br><br><br>
+                                <input type="button" id="changePassword"value="Save Changes" onclick='showPasswordDiv("oldPassword")' class="buttonStyleChange";></input>
+                                <input type="button" value="Cancel" onclick='showPasswordDiv("oldPassword")' class="buttonStyleCancel";></input>  
+                            </div> 
+                        </li>
+                        <li id="oldType" class="oldType" style="display:block"><a href="#"><span style="font-size:13px; padding-left:16px; font-weight:bold; width: 120px;color:#000; display:inline-block;">Account Type</span><span id="typeInput"style="font-size:13px;">Free</span><span style="color: #365899;float: right;padding-left: 5px;padding-right: 25px;text-align: right;" onclick='showTypeDiv("newType")'>Edit</span></a></li>
+                        <li id="newType" class="newType" style="display: none;">
+                            <span style="font-size:13px; padding-left:16px; font-weight:bold; width: 100px;color:#000;">Account Type</span>
+                            <div class="changePart">
+                                <br><br>
+                                <div class="typeLine" >
+                                    <a href="#" class="free" id="free" style="background-color:#91C789;">Free</a>
+                                    <a href="#" class="update" id="update" style="margin-left:100px; background-color:#fff; color:#666;">Premium</a>
+                                </div><br><br>
+                            </div> 
+                        </li>
+
+                    </ul>
+                    <br><br>
+                    <div class="d" id="delete"><a href="#"><div class="delete">Delete Account</div></a></div>
+                </div>
+                
+            </div>
+        </div>    
+    </div>   
+</div>
+<div class="footerBar"></div>
+<script language="JavaScript" type="text/JavaScript">
+
+function showEmailDiv(id){  
+    var newE=document.getElementById("newEmail");  
+    var oldE=document.getElementById("oldEmail"); 
+    var newN=document.getElementById("newName"); 
+    var oldN=document.getElementById("oldName"); 
+    var newP=document.getElementById("newPassword"); 
+    var oldP=document.getElementById("oldPassword");  
+    var newT=document.getElementById("newType"); 
+    var oldT=document.getElementById("oldType"); 
+    if(newN.style.display=='block')
+    {
+        oldN.style.display='block';
+        newN.style.display='none';
+    }
+    if(newP.style.display=='block')
+    {
+        oldP.style.display='block';
+        newP.style.display='none';
+    }
+    if(newT.style.display=='block')
+    {
+        oldT.style.display='block';
+        newT.style.display='none';
+    }
+    if (id == 'oldEmail') {  
+        if (oldE.style.display=='none') {  
+        newE.style.display='none';  
+        oldE.style.display='block';  
+        }  
+    } else {  
+        if (newE.style.display=='none') {  
+            oldE.style.display='none';  
+            newE.style.display='block';  
+        }  
+    }      
+}   
+
+function showNameDiv(id){  
+    var newN=document.getElementById("newName");  
+    var oldN=document.getElementById("oldName");
+    var newE=document.getElementById("newEmail");  
+    var oldE=document.getElementById("oldEmail"); 
+    var newP=document.getElementById("newPassword"); 
+    var oldP=document.getElementById("oldPassword"); 
+    var newT=document.getElementById("newType"); 
+    var oldT=document.getElementById("oldType");  
+    if(newE.style.display=='block')
+    {
+        oldE.style.display='block';
+        newE.style.display='none';
+    }
+    if(newP.style.display=='block')
+    {
+        oldP.style.display='block';
+        newP.style.display='none';
+    } 
+    if(newT.style.display=='block')
+    {
+        oldT.style.display='block';
+        newT.style.display='none';
+    } 
+    if (id == 'oldName') {  
+        if (oldN.style.display=='none') {  
+        newN.style.display='none';  
+        oldN.style.display='block';  
+        }  
+    } else {  
+        if (newN.style.display=='none') {  
+            oldN.style.display='none';  
+            newN.style.display='block';  
+        }  
+    }       
+} 
+
+function showPasswordDiv(id){  
+    var newP=document.getElementById("newPassword");  
+    var oldP=document.getElementById("oldPassword");
+    var newE=document.getElementById("newEmail");  
+    var oldE=document.getElementById("oldEmail"); 
+    var newN=document.getElementById("newName"); 
+    var oldN=document.getElementById("oldName");
+    var newT=document.getElementById("newType"); 
+    var oldT=document.getElementById("oldType"); 
+    if(newE.style.display=='block')
+    {
+        oldE.style.display='block';
+        newE.style.display='none';
+    }
+    if(newN.style.display=='block')
+    {
+        oldN.style.display='block';
+        newN.style.display='none';
+    }  
+    if(newT.style.display=='block')
+    {
+        oldT.style.display='block';
+        newT.style.display='none';
+    }    
+    if (id == 'oldPassword') {  
+        if (oldP.style.display=='none') {  
+        newP.style.display='none';  
+        oldP.style.display='block';  
+        }  
+    } else {  
+        if (newP.style.display=='none') {  
+            oldP.style.display='none'; 
+            newP.style.display='block';  
+        }  
+    }       
+} 
+
+function showTypeDiv(id){  
+    var newP=document.getElementById("newPassword");  
+    var oldP=document.getElementById("oldPassword");
+    var newE=document.getElementById("newEmail");  
+    var oldE=document.getElementById("oldEmail"); 
+    var newN=document.getElementById("newName"); 
+    var oldN=document.getElementById("oldName");
+    var newT=document.getElementById("newType"); 
+    var oldT=document.getElementById("oldType"); 
+    if(newE.style.display=='block')
+    {
+        oldE.style.display='block';
+        newE.style.display='none';
+    }
+    if(newN.style.display=='block')
+    {
+        oldN.style.display='block';
+        newN.style.display='none';
+    }  
+    if(newP.style.display=='block')
+    {
+        oldP.style.display='block';
+        newP.style.display='none';
+    }    
+    if (id == 'oldType') {  
+        if (oldT.style.display=='none') {  
+        newT.style.display='none';  
+        oldT.style.display='block';  
+        }  
+    } else {  
+        if (newT.style.display=='none') {  
+            oldT.style.display='none'; 
+            newT.style.display='block';  
+        }  
+    }  
+}
+
+document.getElementById("free").onclick=function(){
+    var newT=document.getElementById("newType"); 
+    var oldT=document.getElementById("oldType"); 
+    newT.style.display='none';
+    oldT.style.display='block';
+    document.getElementById("typeInput").innerHTML="Free";
+}
+document.getElementById("update").onclick=function(){
+    var newT=document.getElementById("newType"); 
+    var oldT=document.getElementById("oldType"); 
+    newT.style.display='none';
+    oldT.style.display='block';
+    document.getElementById("typeInput").innerHTML="Premium";
+}
+/*document.getElementById("changeEmail").onclik=function(){
+    var xhr;
+    if(window.XMLHttpRequest) {
+        xhr = new XMLHttpRequest();
+    } else {
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xhr.open("POST","/account/update",true);
+    var data="csrf_token="+"1234"+"email="+document.getElementById("newEmailInputTwo").value;
+    xhr.setRequestHeader("Conten t-type","application/x-www-form-urlencoded");
+    xhr.send(data);
+    xhr.onreadstatechange=function(){
+        var XMLHttpReq = xhr;
+        if(XMLHttpReq.readyState === 4 && XMLHttpReq.status === 200) {
+            document.getElementById("oldEmail").style.display = "block";
+            document.getElementById("oldEmail").innerHTML = xhr.responseText;
+            document.getElementById("newEmail").style.display = "none";
+            document.getElementById("oldEmail").style.backgroundColor = "#fff8bb;";
+        } else {
+            alert("Save Failed");
+        }
+    }
+}
+
+document.getElementById("changeName").onclik=function(){
+    var xhr;
+    if(window.XMLHttpRequest) {
+        xhr = new XMLHttpRequest();
+    } else {
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xhr.open("POST","/account/update",true);
+    var data="csrf_token="+"1234"+"name="
+            +document.getElementById("firstInput").value
+            +document.getElementById("middleInput").value
+            +document.getElementById("lastInput").value;
+    xhr.setRequestHeader("Conten t-type","application/x-www-form-urlencoded");
+    xhr.send(data);
+    xhr.onreadstatechange=function(){
+        var XMLHttpReq = xhr;
+        if(XMLHttpReq.readyState === 4 && XMLHttpReq.status === 200) {
+            document.getElementById("oldName").style.display = "block";
+            document.getElementById("oldNameInput").innerHTML = xhr.responseText;
+            document.getElementById("newName").style.display = "none";
+            document.getElementById("oldName").style.backgroundColor = "#fff8bb;";
+        } else {
+            alert("Save Failed");
+        }
+    }
+}
+
+document.getElementById("changePassword").onclik=function(){
+    var xhr;
+    if(window.XMLHttpRequest) {
+        xhr = new XMLHttpRequest();
+    } else {
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xhr.open("POST","/account/update/password",true);
+    var data="csrf_token="+"1234"
+            +"current="+document.getElementById("oldPassword").value
+            +"&new"+document.getElementById("middleInput").value;
+    xhr.setRequestHeader("Conten t-type","application/x-www-form-urlencoded");
+    xhr.send(data);
+    xhr.onreadstatechange=function(){
+        var XMLHttpReq = xhr;
+        if(XMLHttpReq.readyState === 4 && XMLHttpReq.status === 200) {
+            document.getElementById("oldPassword").style.display = "block";
+            document.getElementById("oldPasswordInput").innerHTML = "Password have changed";
+            document.getElementById("newPassword").style.display = "none";
+            document.getElementById("oldPassword").style.backgroundColor = "#fff8bb;";
+        } else {
+            alert("Save Failed");
+        }
+    }
+}
+
+document.getElementById("delete").onclik=function(){
+    var xhr;
+    if(window.XMLHttpRequest) {
+        xhr = new XMLHttpRequest();
+    } else {
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xhr.open("POST","/account/update/delete",true);
+    var data="csrf_token="+"1234";
+    xhr.setRequestHeader("Conten t-type","application/x-www-form-urlencoded");
+    xhr.send(data);
+    xhr.onreadstatechange=function(){
+        var XMLHttpReq = xhr;
+        if(XMLHttpReq.readyState === 4 && XMLHttpReq.status === 200) {
+            alert("Delete Success");
+        } else {
+            alert("Save Failed");
+        }
+    }
+} */ 
+</script>
+</body>
+
+</html>
